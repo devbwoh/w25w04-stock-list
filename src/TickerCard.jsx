@@ -70,7 +70,7 @@ const TickerCard = ({ ticker }) => {
 
   const stockUrl = isKoreanStock
     ? `https://finance.naver.com/item/main.naver?code=${meta.symbol.replace('.KS', '').replace('.KQ', '')}`
-    : `https://www.google.com/finance/quote/${ticker}:${meta.exchangeName == 'NMS' ? "NASDAQ" : "NYSE"}`;
+    : `https://www.google.com/finance/quote/${ticker}:${meta.exchangeName === 'PCX' ? 'NYSEARCA' : meta.exchangeName === 'NYQ' ? 'NYSE' : 'NASDAQ'}`
 
   return (
     <a href={stockUrl} target="_blank" rel="noopener noreferrer">
